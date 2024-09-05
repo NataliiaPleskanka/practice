@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/Header/Header";
+import WelcomeSection from "./components/WelcomeSection/WelcomeSection";
+import Footer from "./components/Footer/Footer";
+import Message from "./Message/Message";
+import List from "./components/List/List";
+List;
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const isOnline = true;
+  const age = 18;
+  const filmsData = [
+    { id: "1", title: "GOT" },
+    { id: "2", title: "Taxi" },
+    { id: "3", title: "OLX" },
+    { id: "4", title: "Gilmor's Girl" },
+  ];
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <p>Super forum</p>
+      {isOnline && <h2>Welcome</h2>}
+      {age >= 18 ? <h2>Ok</h2> : <h2>No</h2>}
+      <Message author="Petro" message="Sell bad" />
+      <Message author="Alex" message="Sell bad" />
+      <Message author="Roman" message="Sell bad" />
+      <List title="Goods" data={filmsData} />
+      {/* <WelcomeSection />
+      <Footer /> */}
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
